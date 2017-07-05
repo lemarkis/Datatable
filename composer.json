@@ -1,0 +1,23 @@
+{
+    "name": "Lemarkis/Datatable",
+    "description": "Laravel datatable engine",
+    "keywords": [
+        "Lemarkis", "laravel", "datatable", "data", "table"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lemarkis",
+            "email": "jean.lemarquis@epitech.eu"
+        }
+    ],
+    "require": {
+        "illuminate/support": "5.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Lemarkis\\Datatable\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

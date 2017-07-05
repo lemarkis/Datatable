@@ -1,0 +1,23 @@
+
+.datatable-wrapper{
+	position:relative;
+	
+	> .datatable-thead {
+		> table {
+			margin:0;
+		}
+		&.affix{
+			z-index:2;
+			top:0;
+			width:inherit;
+		}
+	}
+
+	> .datatable-tbody {
+		> table {
+			> thead {
+				visibility:hidden;
+			}
+		}
+	}
+}
