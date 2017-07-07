@@ -18,7 +18,10 @@ class DatatableServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('Lemarkis/datatable');
+		$this->app['datatable'] = $this->app->share(function($app)
+		{
+			return new Datatable($app['config'], $app['view'], $app['session'], $app['request']);
+		});
 	}
 
 	/**
@@ -28,10 +31,6 @@ class DatatableServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['datatable'] = $this->app->share(function($app)
-		{
-			return new Datatable($app['config'], $app['view'], $app['session'], $app['request']);
-		});
 	}
 
 	/**
