@@ -32,7 +32,7 @@ class Datatable {
 		$this->session = $session;	
 		$this->request = $request;	
 		
-		$this->storage = new Libraries\Storage( $config->get('datatable::rows.default') );
+		$this->storage = new Libraries\Storage( $config->get('datatable.rows.default') );
 	}
 	
 	public function model( $model, $sname = null ){
@@ -42,7 +42,7 @@ class Datatable {
 	}
 	
 	private function resolve( $model, $sname ){
-		$this->SID = $SID = $this->config->get('datatable::prefix') . ($sname ?: with(new $model)->getTable());
+		$this->SID = $SID = $this->config->get('datatable.prefix') . ($sname ?: with(new $model)->getTable());
 		return $this->session->get($SID) ?: [];
 	}
 	
@@ -165,23 +165,23 @@ class Datatable {
 			$presenter->ajax();
 		}
 		
-		return $this->factory->make( $this->config->get('datatable::view.pagination') , compact('paginator', 'presenter'));
+		return $this->factory->make( $this->config->get('datatable.view.pagination') , compact('paginator', 'presenter'));
 	}
 	
 	private function elements(){
 		$elements = [];
 		
-		foreach($this->config->get('datatable::rows.elements') as $length){
+		foreach($this->config->get('datatable.rows.elements') as $length){
 			$elements[] = new Libraries\Element( $this->route, $this->parameters, $length, $this->storage->length, $this->ajax);
 		}
 		
-		return $this->factory->make( $this->config->get('datatable::view.elements') , compact('elements'));
+		return $this->factory->make( $this->config->get('datatable.view.elements') , compact('elements'));
 	}
 		
 	private function form(){	
 		$search = $this->storage->search;
 		$url = route( $this->route, $this->parameters);
-		return $this->factory->make( $this->config->get('datatable::view.form') , compact('search', 'url'));
+		return $this->factory->make( $this->config->get('datatable.view.form') , compact('search', 'url'));
 	}
 	
 	private function table( $datas ){
@@ -203,7 +203,7 @@ class Datatable {
 			$rows[] = ['cells' => $cells, 'attributes' => $attributes ];
 		endforeach;
 		
-		return $this->factory->make( $this->config->get('datatable::view.table') , compact('rows', 'headers'));
+		return $this->factory->make( $this->config->get('datatable.view.table') , compact('rows', 'headers'));
 	}
 	
 	private function script( $id ){	
@@ -289,7 +289,7 @@ class Datatable {
 	public function linkTo(){
 		
 		$filename = date('YmdHis') . '-export.csv';
-		$directory = $this->config->get('datatable::downloads');
+		$directory = $this->config->get('datatable.downloads');
 		$DS = DIRECTORY_SEPARATOR;
 		
 		$path = public_path() . $DS . $directory . $DS . $filename;
@@ -332,7 +332,7 @@ class Datatable {
 			$ajax = true;
 		}
 		
-		return $this->factory->make( $this->config->get('datatable::view.layout') , compact('table', 'form', 'elements', 'pagination', 'id', 'script', 'ajax' ));
+		return $this->factory->make( $this->config->get('datatable.view.layout') , compact('table', 'form', 'elements', 'pagination', 'id', 'script', 'ajax' ));
 	}
 	
 	

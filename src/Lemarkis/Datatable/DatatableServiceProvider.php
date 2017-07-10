@@ -22,6 +22,30 @@ class DatatableServiceProvider extends ServiceProvider {
 		{
 			return new Datatable($app['config'], $app['view'], $app['session'], $app['request']);
 		});
+
+		$this->loadViewsFrom(__DIR__.'/../../views', 'datatable');
+
+		$this->publishes([
+			__DIR__.'/../../config' => config_path('datable.php')
+		], 'config');
+
+		if (\method_exists('resource_path')) {
+			$this->publishes([
+				__DIR__.'/../../views' => resource_path('views/vendor/datatable')
+			], 'views');
+
+			$this->publishes([
+				__DIR__.'/../../public' => resource_path('assets/vendor/datatable')
+			], 'assets');
+		} else {
+			$this->publishes([
+				__DIR__.'/../../views' => base_path('resources/views/vendor/datatable')
+			], 'views');
+
+			$this->publishes([
+				__DIR__.'/../../public' => base_path('resources/assets/vendor/datatable')
+			], 'assets');
+		}
 	}
 
 	/**
