@@ -29,7 +29,7 @@ class DatatableServiceProvider extends ServiceProvider {
 			__DIR__.'/../../config' => config_path('datable.php')
 		], 'config');
 
-		if (\method_exists('resource_path')) {
+		if (\function_exists('resource_path')) {
 			$this->publishes([
 				__DIR__.'/../../views' => resource_path('views/vendor/datatable')
 			], 'views');
