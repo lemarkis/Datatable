@@ -35,7 +35,7 @@ class DatatableServiceProvider extends ServiceProvider {
 			], 'views');
 
 			$this->publishes([
-				__DIR__.'/../../public' => resource_path('assets/vendor/datatable')
+				__DIR__.'/../../../public' => resource_path('assets/vendor/datatable')
 			], 'assets');
 		} else {
 			$this->publishes([
@@ -43,7 +43,7 @@ class DatatableServiceProvider extends ServiceProvider {
 			], 'views');
 
 			$this->publishes([
-				__DIR__.'/../../public' => base_path('resources/assets/vendor/datatable')
+				__DIR__.'/../../../public' => base_path('resources/assets/vendor/datatable')
 			], 'assets');
 		}
 	}
