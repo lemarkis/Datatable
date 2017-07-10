@@ -26,7 +26,7 @@ class DatatableServiceProvider extends ServiceProvider {
 		$this->loadViewsFrom(__DIR__.'/../../views', 'datatable');
 
 		$this->publishes([
-			__DIR__.'/../../config' => config_path('datable.php')
+			__DIR__.'/../../config/config.php' => config_path('datatable.php')
 		], 'config');
 
 		if (\function_exists('resource_path')) {
