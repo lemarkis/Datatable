@@ -18,7 +18,7 @@ class DatatableServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->app['datatable'] = $this->app->share(function($app)
+		$this->app->singleton('datatable', function($app)
 		{
 			return new Datatable($app['config'], $app['view'], $app['session'], $app['request']);
 		});
