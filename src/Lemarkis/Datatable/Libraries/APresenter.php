@@ -1,6 +1,6 @@
 <?php namespace Lemarkis\Datatable\Libraries;
 
-use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 abstract class APresenter {
 
