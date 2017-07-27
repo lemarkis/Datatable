@@ -2,7 +2,7 @@
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\View\Factory as Factory;
-use Illuminate\Pagination\LengthAware\Paginator as Paginator;
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Session\SessionManager as Session;
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Response as Response;
