@@ -205,7 +205,7 @@ abstract class APresenter {
 			return $this->getDisabledTextWrapper($text);
 		}
 
-		$url = $this->paginator->getUrl($this->currentPage - 1);
+		$url = $this->paginator->Url($this->currentPage - 1);
 
 		return $this->getPageLinkWrapper($url, $text, 'prev');
 	}
@@ -226,7 +226,7 @@ abstract class APresenter {
 			return $this->getDisabledTextWrapper($text);
 		}
 
-		$url = $this->paginator->getUrl($this->currentPage + 1);
+		$url = $this->paginator->Url($this->currentPage + 1);
 
 		return $this->getPageLinkWrapper($url, $text, 'next');
 	}
@@ -249,7 +249,7 @@ abstract class APresenter {
 	 */
 	public function getLink($page)
 	{
-		$url = $this->paginator->getUrl($page);
+		$url = $this->paginator->Url($page);
 
 		return $this->getPageLinkWrapper($url, $page);
 	}
