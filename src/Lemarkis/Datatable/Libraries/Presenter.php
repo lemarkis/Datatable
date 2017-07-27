@@ -1,8 +1,8 @@
 <?php namespace Lemarkis\Datatable\Libraries;
 
-use Illuminate\Pagination\BootstrapPresenter as BootstrapPresenter;
+use APresenter;
 
-class Presenter extends BootstrapPresenter {
+class Presenter extends APresenter {
 	
 	private $ajax = false;
 	
@@ -26,8 +26,29 @@ class Presenter extends BootstrapPresenter {
 		if($this->ajax)
 			return '<li><a href="#" data-href="'.$url.'"'.$rel.'>'.$page.'</a></li>';
 		
-		return parent::getPageLinkWrapper($url, $page, $rel = null);
+		//return parent::getPageLinkWrapper($url, $page, $rel = null);
+		return '<li><a href="'.$url.'"'.$rel.'>'.$page.'</a></li>';
 	}
 
+	/**
+	 * Get HTML wrapper for disabled text.
+	 *
+	 * @param  string  $text
+	 * @return string
+	 */
+	public function getDisabledTextWrapper($text)
+	{
+		return '<li class="disabled"><span>'.$text.'</span></li>';
+	}
 
+	/**
+	 * Get HTML wrapper for active text.
+	 *
+	 * @param  string  $text
+	 * @return string
+	 */
+	public function getActivePageWrapper($text)
+	{
+		return '<li class="active"><span>'.$text.'</span></li>';
+	}
 }
