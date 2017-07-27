@@ -1,6 +1,6 @@
 <?php namespace Lemarkis\Datatable\Libraries;
 
-use APresenter;
+use Lemarkis\Datatable\Libraries\APresenter;
 
 class Presenter extends APresenter {
 	
