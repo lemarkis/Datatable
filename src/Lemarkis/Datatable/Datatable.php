@@ -2,7 +2,7 @@
 
 use Illuminate\Config\Repository as Config;
 use Illuminate\View\Factory as Factory;
-use Illuminate\Pagination\Paginator as Paginator;
+use Illuminate\Pagination\LengthAware\Paginator as Paginator;
 use Illuminate\Session\SessionManager as Session;
 use Illuminate\Http\Request as Request;
 use Illuminate\Support\Facades\Response as Response;
@@ -155,9 +155,11 @@ class Datatable {
 	
 	private function pagination($datas, $count){
 		
-		Paginator::setCurrentPage( $this->storage->page );
-		$paginator = Paginator::make( (array) $datas, $count, $this->storage->length);
-		$paginator->setBaseUrl( route($this->route, $this->parameters) );
+		$paginator = new Paginator($datas, $this->storage->length, $count, $this->storage->page, ['path' => route($this->route, $this->parameters)]);
+
+		// Paginator::setCurrentPage( $this->storage->page );
+		// $paginator = Paginator::make( (array) $datas, $count, $this->storage->length);
+		// $paginator->setBaseUrl( route($this->route, $this->parameters) );
 		
 		$presenter = new Libraries\Presenter($paginator);
 		
