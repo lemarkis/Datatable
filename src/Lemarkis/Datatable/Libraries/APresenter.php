@@ -1,5 +1,7 @@
 <?php namespace Lemarkis\Datatable\Libraries;
 
+use Illuminate\Pagination\Paginator;
+
 abstract class APresenter {
 
 	/**
