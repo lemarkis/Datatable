@@ -1,18 +1,18 @@
 
-{{ $ajax ? '<div id="'. $id .'">' : '' }}
+{!! $ajax ? '<div id="'. $id .'">' : '' !!}
 	
-	{{ $form or '' }}
+	{!! $form or '' !!}
 
-	{{ $table }}
+	{!! $table !!}
 	
 	<div>
-		{{ $pagination or '' }}
-		{{ $elements or '' }}
+		{!! $pagination or '' !!}
+		{!! $elements or '' !!}
 		<div class="clearfix"></div>
 	</div>
 	
 
-{{ $ajax ? '</div>' : '' }}
+{!! $ajax ? '</div>' : '' !!}
 
-{{ $script or '' }}
+{!! $script or '' !!}
 

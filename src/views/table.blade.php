@@ -3,16 +3,16 @@
 		<thead>
 			<tr>
 				@foreach ($headers as $head)
-				<th {{ $head['attributes'] }}>{{ $head['value'] }}</th>
+				<th {!! $head['attributes'] !!}>{!! $head['value'] !!}</th>
 				@endforeach
 			</tr>
 		</thead>
 		<tbody>
 			@if( $rows )
 				@foreach ($rows as $row)
-				<tr {{ $row['attributes'] }}>
+				<tr {!! $row['attributes'] !!}>
 					@foreach ($row['cells'] as $cell)
-					<td {{ $cell['attributes'] }}>{{ $cell['value'] }}</td>
+					<td {!! $cell['attributes'] !!}>{!! $cell['value'] !!}</td>
 					@endforeach
 				</tr>
 				@endforeach

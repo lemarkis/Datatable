@@ -3,10 +3,10 @@
 		@foreach($elements as $element)
 			@if($element->active())
 				<li class="active">
-					<span>{{ $element->value() }}</span>
+					<span>{!! $element->value() !!}</span>
 				</li>
 			@else
-				<li>{{ $element->link() }}</li>
+				<li>{!! $element->link() !!}</li>
 			@endif
 		@endforeach
 
