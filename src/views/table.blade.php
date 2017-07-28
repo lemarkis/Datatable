@@ -21,7 +21,7 @@
 	</table>
 </div>
 @unless ( $rows )
-	<p class="text-center">@lang('datatable::datatable.notfound')</p>
+	<p class="text-center">@lang('datatable.notfound')</p>
 @endunless
 
 
