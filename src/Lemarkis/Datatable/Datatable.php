@@ -153,9 +153,9 @@ class Datatable {
 		return array($datas, $count);
 	}
 	
-	private function pagination($datas, $count){
+	private function pagination($datas, $count) {
 		
-		$paginator = new Paginator($datas, $this->storage->length, $count, $this->storage->page, ['path' => route($this->route, $this->parameters)]);
+		$paginator = new Paginator($datas, $count, $this->storage->length, $this->storage->page, ['path' => route($this->route, $this->parameters)]);
 
 		// Paginator::setCurrentPage( $this->storage->page );
 		// $paginator = Paginator::make( (array) $datas, $count, $this->storage->length);
