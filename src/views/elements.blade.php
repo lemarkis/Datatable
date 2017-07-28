@@ -12,7 +12,7 @@
 
 		<li class="disabled">
 			<span>
-				@lang('datatable::datatable.elements')
+				@lang('datatable.elements')
 			</span>
 		</li>
 	</ul>
