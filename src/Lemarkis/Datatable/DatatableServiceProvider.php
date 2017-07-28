@@ -39,7 +39,7 @@ class DatatableServiceProvider extends ServiceProvider {
 			], 'assets');
 			$this->publishes([
 				__DIR__.'/../../../lang' => resource_path('lang')
-			], lang);
+			], 'lang');
 		} else {
 			$this->publishes([
 				__DIR__.'/../../views' => base_path('resources/views/vendor/datatable')
