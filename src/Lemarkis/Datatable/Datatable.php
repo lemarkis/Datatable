@@ -170,14 +170,14 @@ class Datatable {
 		return $this->factory->make( $this->config->get('datatable.view.pagination') , compact('paginator', 'presenter'));
 	}
 	
-	private function elements(){
+	private function elements($count){
 		$elements = [];
 		
 		foreach($this->config->get('datatable.rows.elements') as $length){
 			$elements[] = new Libraries\Element( $this->route, $this->parameters, $length, $this->storage->length, $this->ajax);
 		}
 		
-		return $this->factory->make( $this->config->get('datatable.view.elements') , compact('elements'));
+		return $this->factory->make( $this->config->get('datatable.view.elements') , compact('elements', 'count'));
 	}
 		
 	private function form(){	
