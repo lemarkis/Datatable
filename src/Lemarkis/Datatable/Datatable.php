@@ -230,7 +230,7 @@ class Datatable {
 
 					\$form = $(this).closest('form');
 					\$search = \$form.find('input[name=\"search\"]');
-					\$search.val(\$search.val.trim());
+					\$search.val(\$search.val().trim());
 					fd = (\$(this).attr('name') == 'reset') ? 'reset' : \$form.serialize();		
 					
 					href = \$form.attr('action');
