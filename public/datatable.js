@@ -107,3 +107,18 @@
     };
 
 })( jQuery, window, document );
+
+$(function () {
+	$('.datatable').ajaxComplete(function (event, request, settings) {
+		$('.datatable').each(function () {
+			if ($(this).data('datatable')) {
+				$(this).datatable('resize');
+			}
+			$(this).datatable();
+		});
+		
+		if (typeof datatableCallback === 'function') {
+			datatableCallback();
+		}
+	});
+});

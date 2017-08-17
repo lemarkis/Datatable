@@ -208,7 +208,7 @@ class Datatable {
 		return $this->factory->make( $this->config->get('datatable.view.table') , compact('rows', 'headers'));
 	}
 	
-	private function script( $id ){	
+	private function script($id) {
 		return "
 		<script type='text/javascript'>
 			$(function(){
@@ -229,17 +229,20 @@ class Datatable {
 					e.preventDefault();
 
 					\$form = $(this).closest('form');
+					\$search = \$form.find('input[name=\"search\"]');
+					\$search.val(\$search.val.trim());
 					fd = (\$(this).attr('name') == 'reset') ? 'reset' : \$form.serialize();		
 					
 					href = \$form.attr('action');
 					
 					\$datatable.addClass('loading');
 					\$datatable.load( href, fd, function() {
-						\$datatable.removeClass('loading');				
+						\$datatable.removeClass('loading');
+						if (typeof datatableCallback === 'function') {
+							datatableCallback();
+						}
 					});
-					
-				});
-										
+				});				
 			});
 		</script>";
 	}
@@ -318,9 +321,9 @@ class Datatable {
 		list($datas, $count) = $this->built();	
 		
 		
-		$pagination = $this->pagination( $datas, $count);
-		$table =  $this->table( $datas );
-		$elements = $this->elements();
+		$pagination = $this->pagination($datas, $count);
+		$table =  $this->table($datas);
+		$elements = $this->elements($count);
 		$form = ($this->searchable) ? $this->form() : null;
 
 		

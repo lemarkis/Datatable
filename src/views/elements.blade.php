@@ -11,8 +11,9 @@
 		@endforeach
 
 		<li class="disabled">
+			<span>/</span>
 			<span>
-				@lang('datatable.elements')
+				<span id="datatable_ttl_elm">{{ $count }}</span> @lang('datatable::datatable.elements')
 			</span>
 		</li>
 	</ul>
