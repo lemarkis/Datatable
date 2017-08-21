@@ -222,6 +222,9 @@ class Datatable {
 					\$datatable.addClass('loading');
 					\$datatable.load( href, function() {
 						\$datatable.removeClass('loading');
+						if (typeof datatableCallback === 'function') {
+							datatableCallback();
+						}
 					});
 				});
 				
